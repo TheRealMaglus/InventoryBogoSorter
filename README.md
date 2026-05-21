@@ -1,3 +1,16 @@
+## Fork note: per-stack favourites
+
+This fork contains an experimental per-stack favourite system originally developed for PR #183 against GTNewHorizons/InventoryBogoSorter.
+
+The feature allows stacks to be marked as favourites so player-inventory sorting skips those stacks and leaves them in place. It also includes a visible favourite overlay, tooltip text, hotbar support, keybind support, and multiplayer display of another player’s favourite marker.
+
+This implementation stores the favourite marker directly on the `ItemStack` using NBT. That was intentional: the goal was for the favourite to follow the actual stack through normal and modded movement paths such as dragging, shift-clicking, dropping, picking up, transfers, and other inventory interactions. A per-player slot-based implementation would instead become a slot-lock system and would need extra handling to avoid the favourite state drifting when stacks move.
+
+The upstream PR was rejected because the project does not want this information stored on `ItemStack` NBT. I am keeping this fork as-is for reference/use, but I will not be continuing development on this feature.
+
+If someone wants to pick this up and rework it into a non-NBT / per-player data implementation as requested in PR #183, they are free to do so. No credit to me is required.
+
+
 # Inventory Bogosorter
 
 This is aims to replace the popular Inventory Tweaks mod.
